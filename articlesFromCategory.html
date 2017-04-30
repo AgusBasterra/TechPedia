@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Resultados de busqueda</title>
+	</head>
+	<body>
+		
+		<h1 id="tituloCat"></h1>
+		<h1>Categorias</h1>
+		<ul id="listcat"></ul>
+		<h2>Items</h2>
+		<ul id="list">
+		</ul>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/search.js"></script>
+		<script type="text/javascript">
+			var conn= new Connection();
+			conn.articlesFromCategory(decodeURIComponent(findGetParameter("cmtitle")));
+			conn.getCategories(decodeURIComponent(findGetParameter("cmtitle")));
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Agregar Item</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.createonly=true;
+		</script>
+		Agregar Item
+		<input type="text" name="title" id="title" placeholder="titulo"><br>
+		<textarea name="text" id="text" placeholder="contenido"></textarea><br>
+
+		<input type="button" onClick="send()" value="Enviar">
+
+		<input type="text" onKeyUp="search()" id="termtofind">
+		<ul id="listtoappend">
+		</ul>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/apply.js"></script>
+		<script type="text/javascript" src="js/search.js"></script>
+		<script type="text/javascript">
+			var sender = new Sender();
+			var conn= new Connection();
+			function send(){
+				sender.edit(document.getElementById("title").value, document.getElementById("text").value, window.createonly);	
+			}
+			function search(){
+				conn.findCategories(document.getElementById("termtofind").value);
+			}
+			function addType(typeOfCategory){
+				$('#text').append("[[Category:"+typeOfCategory+"]]");
+				document.getElementById("listtoappend").innerHTML="";
+				document.getElementById("termtofind").value="";
+			}
+			var title = findGetParameter("title");
+			if(title!=null){
+				document.getElementById("title").value=title;
+				$("#title").attr('disabled','disabled');
+				conn.getArticle(decodeURIComponent(title));
+				window.createonly=false;
+			}
+			
+		</script>
+	</body>
+
+</html>

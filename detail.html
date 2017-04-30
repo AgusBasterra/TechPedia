@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Resultados de busqueda</title>
+	</head>
+	<body onLoad="getArticle()">
+		
+		
+		<input type="button" value="Editar" id="btneditar">
+		<div id="content">
+		</div>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/search.js"></script>
+		<script type="text/javascript">
+			function getArticle(){
+				var conn= new Connection();
+				conn.getArticle(decodeURIComponent(findGetParameter("title")));
+			}
+			$("#btneditar").attr("onclick",'window.location="addItem.html?title='+decodeURIComponent(findGetParameter("title"))+'"');
+		</script>
+	</body>
+
+</html>

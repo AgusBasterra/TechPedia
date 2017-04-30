@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection"/>
+
+        <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+        <!--<link rel="stylesheet" type="text/css" href="css/core.css">-->
+        <link rel="stylesheet" href="css/froala_editor.css">
+        <link rel="stylesheet" href="css/froala_style.css">
+        <link rel="stylesheet" href="css/code_view.css">
+        <link rel="stylesheet" href="css/image_manager.css">
+        <link rel="stylesheet" href="css/image.css">
+        <link rel="stylesheet" href="css/table.css">
+        <link rel="stylesheet" href="css/video.css">
+        <link rel="stylesheet" href="css/codemirror.min.css">
+
+        <link rel="stylesheet" href="css/core.css">
+        <title>TechPedia</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            window.createonly=true;
+            window.category=false;
+            function cleanMsg(){
+                var linksToLic = $('a[href="https://www.froala.com/wysiwyg-editor?k=u"]');
+                if(linksToLic.length!=0){
+                    linksToLic[0].style="display: none";
+                }
+                console.log("cleared");
+            }
+        </script>
+        <header>
+            <div class="nav-extended">
+                <nav class="indigo">
+                    <div class="nav-wrapper">
+                        <div class="row">
+                            <a href="#" data-activates="slide-out" class="button-collapse">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </a>
+                            <ul class="side-nav grey lighten-2" id="slide-out">
+                                <div class="section indigo" style="padding-top: 20%;"></div>
+                                <div class="indigo flow-text" style="padding-left: 4%;">Fields</div>
+                                <div class="input-field" style="margin: 2%;">
+                                    <input type="search" id="searchSmall" onKeyUp="search()" placeholder="Search Category" class="searchWhiteBoxAlways" style="background: white;" required>
+                                </div>        
+                                <div id="smallresults">
+                                    <!--<li><a href="" class="black-text">Arts <i class="fa fa-arrow-right right"></i></a></li>-->
+                                    
+                                </div>
+                            </ul>
+                            <div class="col s2"><a href="index.html" class="brand-logo">TechPedia</a></div>
+                            <form class="col s2 right" style="margin-right: 5%;">
+                                <div class="col s1 hide-on-med-and-up">
+                                    <a onClick="send()" class="btn-floating deep-orange">
+                                        <i class="fa fa-check"></i>
+                                    </a>
+                                </div>
+                                <div class="col s1 hide-on-large-only">
+                                    <div class="col s1 hide-on-small-only">
+                                        <a onClick="send()" class="btn-floating deep-orange">
+                                            <i class="fa fa-check" style="margin-top: -24%";></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col s1 hide-on-med-and-down right">
+                                    <a onClick="send()" class="btn-floating deep-orange">
+                                        <i class="fa fa-check" style="margin-top: -24%";></i>
+                                    </a>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                    <div class="indigo row">
+                        <form class="col s12">
+                            <div class="col s9 offset-s1" id="titlecontainer" style="display:none;">
+                                <input name="title" id="title" placeholder="Title" type="text" class="validate">
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+              
+        </header>
+        <main>
+            <div class="row">
+                <div class="col s3 grey lighten-2 hide-on-med-and-down" style="margin-top: 75px;height: 86vh;float: left;position: absolute;overflow-y: scroll;overflow-x: hidden;margin-left: 0px;" id="sidenavCont">
+                    <div class="input-field">
+                        <input type="search" id="searchBig" placeholder="Search Category" class="searchWhiteBoxAlways" onKeyUp="search()" style="background: white;" required>
+                    </div>     
+                    <div class="collection" id="bigresults">
+                        <!--<a href="#!" class="collection-item black-text grey lighten-2">Arts <i class="fa fa-arrow-right right indigo-text"></i></a>-->
+                    </div>
+                </div>               
+                <div style="height: 86vh;float: right;overflow-x: hidden; width: 100%;">
+                    <div class="container">
+                        <div class="col l12 s12 offset-l2">
+                            <div class="section"></div>
+                            <div class="row">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <h5 id="helpTitle" class="center"></h5>
+                                            <div class="section"></div>
+                                            <textarea id="textcontent" data-length="250" class="materialize-textarea"></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>           
+        </footer>
+        <script type="text/javascript" src="cordova.js" charset="utf-8"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/materialize.js"></script>
+        <script type="text/javascript" src="js/apply.js"></script>
+        <script type="text/javascript" src="js/search.js"></script>
+        <script type="text/javascript" src="js/codemirror.min.js"></script>
+        <script type="text/javascript" src="js/xml.min.js"></script>
+        <script type="text/javascript" src="js/froala_editor.min.js"></script>
+        <script type="text/javascript" src="js/align.min.js"></script>
+        <script type="text/javascript" src="js/code_beautifier.min.js"></script>
+        <script type="text/javascript" src="js/code_view.min.js"></script>
+        <script type="text/javascript" src="js/draggable.min.js"></script>
+        <script type="text/javascript" src="js/image.min.js"></script>
+        <script type="text/javascript" src="js/image_manager.min.js"></script>
+        <script type="text/javascript" src="js/link.min.js"></script>
+        <script type="text/javascript" src="js/lists.min.js"></script>
+        <script type="text/javascript" src="js/paragraph_format.min.js"></script>
+        <script type="text/javascript" src="js/paragraph_style.min.js"></script>
+        <script type="text/javascript" src="js/table.min.js"></script>
+        <script type="text/javascript" src="js/video.min.js"></script>
+        <script type="text/javascript" src="js/url.min.js"></script>
+        <script type="text/javascript" src="js/entities.min.js"></script>
+        <script type="text/javascript">     
+            $(document).ready(function() {
+              Materialize.updateTextFields();
+            });
+            $(".button-collapse").sideNav();
+            var sender = new Sender();
+            var conn= new Connection();
+            function send(){
+                if(window.category)
+                    sender.edit("Category:"+document.getElementById("title").value, $('#textcontent').froalaEditor('html.get'), true);  
+                else
+                    sender.edit(document.getElementById("title").value, $('#textcontent').froalaEditor('html.get'), window.createonly);  
+            }
+            function search(){
+                var val=document.getElementById("searchSmall").value;
+                if(val=="")
+                    val=document.getElementById("searchBig").value;
+                conn.findCategories(val);
+            }
+            function addType(typeOfCategory){
+                $('#textcontent').froalaEditor('html.insert', "[[Category:"+typeOfCategory+"]]");
+                document.getElementById("smallresults").innerHTML="";
+                document.getElementById("bigresults").innerHTML="";
+                document.getElementById("searchBig").value="";
+                document.getElementById("searchSmall").value="";
+                cleanMsg();
+                $('.button-collapse').sideNav('hide');
+            }
+            var title = findGetParameter("title");
+            var cat = findGetParameter("categoria");
+            
+            $(function(){
+                $('#textcontent')
+                  .on('froalaEditor.initialized', function (e, editor) {
+                    $('#textcontent').parents('form').on('submit', function () {
+                      console.log($('#textcontent').val());
+                      return false;
+                    });
+                    if(title!=null){
+                        document.getElementById("title").value=title;
+                        document.getElementById("title").title="Blocked";
+
+                        $("#title").attr('disabled','disabled');
+                        $("#title").attr('onClick', "alert('"+title+"');");
+                        document.getElementById("helpTitle").innerHTML=title;
+                        conn.getArticle(decodeURIComponent(title));
+                        window.createonly=false;
+                        document.getElementById("sidenavCont").style="margin-top: 1px;height: 86vh;float: left;position: absolute;overflow-y: scroll;overflow-x: hidden;margin-left: 0px;";
+                    }else{
+                        document.getElementById("titlecontainer").style="";
+                        if(cat!=null){
+                            if(cat=="true"){
+                                var base=decodeURIComponent(findGetParameter("base"));
+                                if(base){
+                                    $('#textcontent').froalaEditor('html.insert', "[["+base+"]]");
+                                    window.category=true;
+                                }
+                            }
+                        }
+                    }
+                    cleanMsg();
+                    
+                }).froalaEditor({enter: $.FroalaEditor.ENTER_P, placeholderText: null})
+            });
+            $('#textcontent').on('froalaEditor.blur', function (e, editor) {
+              cleanMsg();
+            });
+            
+        </script>
+    </body>
+</html>
